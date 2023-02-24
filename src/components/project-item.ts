@@ -1,13 +1,12 @@
-/// <reference path="base-components.ts"/>
+//  ES6 syntax
+import { Component } from './base-components.js';
 
-/// <reference path="../decorators/autobind.ts"/>
+import { autobind } from '../decorators/autobind.js';
 
-/// <reference path="../models/drag-drop.ts"/>
-/// <reference path="../models/project.ts"/>
+import { Draggable } from '../models/drag-drop.js';
+import { Project } from '../models/project.js';
 
-namespace App {
-      // ProjectItem Class
-  export class ProjectItem extends Component<HTMLUListElement, HTMLLIElement>
+export class ProjectItem extends Component<HTMLUListElement, HTMLLIElement>
   implements Draggable {
   private project: Project;
 
@@ -47,5 +46,4 @@ namespace App {
     this.element.querySelector('h3')!.textContent = this.persons + ' assigned';
     this.element.querySelector('p')!.textContent = this.project.description;
   }
-}
 }
