@@ -1,9 +1,18 @@
 const path = require('path');
 module.exports = {
+    mode: 'development',
     entry: './src/app.ts',
+    devServer: {
+        static: [
+            {
+                directory: path.join(__dirname)
+            }
+        ]
+    },
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/dist/'
     },
     //  in .tsconfig.json, set 'sourceMap = true'
     //  tells webpack will be generated source map already
@@ -21,6 +30,5 @@ module.exports = {
     // which file extension to add to imports it finds
     resolve: {
         extensions: ['.ts', '.js']
-    },
-    mode: 'development'
+    }
 }
